@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Light Sensor</title>
+
+        <link href="../css/style.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <script src="../js/itemslide.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js"></script>
+        
+        <script src="../js/statusbar.js"></script>
+    
+        <script src="../js/sliding.js"></script>
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+    
+        <script src="https://unpkg.com/mqtt@4.2.8/dist/mqtt.min.js"></script>
+        <script src="../js/lightsensor.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <!-- script lang="text/javascript" src="../chart.js/dist/chart.min.js"></script-->
+        <script lang="text/javascript" src="../xlsx/dist/xlsx.full.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource"></script>
+
+
+    </head>
+    <body>
+        <div class="container-fluid g-0">
+
+            <div class="row g-0" style="height: 100vh; background-color: #72A664;">
+                <div class="col-1 statusbar">
+                    <img class="logo rounded mx-auto d-block" src="../imgs/HowdyFarms-logo.png" alt="HF Logo" />
+                    <img class="logo rounded mx-auto d-block" src="../imgs/AGF-logo.png" alt="AGF Logo" />
+                    <img class="logo rounded mx-auto d-block" src="../imgs/ESW-logo.jpg" alt="ESW Logo" />
+
+                    <div class="col-1 fixed-bottom">
+                        <div class="row g-0">
+                            <i class="bi bi-broadcast-pin statusicon"></i>
+                        </div>
+                        <div class="row g-0">
+                            <i class="bi bi-hdd-rack statusicon" id="mqttIcon"></i>
+                        </div>
+                        <!-- <div class="row g-0">
+                            <i class="bi bi-brightness-high-fill statusicon"></i>
+                        </div> -->
+                        <!-- div class="row g-0" >
+                            <i class="bi bi-battery statusicon"></i -->
+                            <!-- <i class="bi bi-battery-half statusicon"></i> -->
+                            <!-- <i class="bi bi-battery-full statusicon"></i> -->
+                            <!-- <i class="bi bi-battery-charging statusicon"></i> -->
+                        <!-- /div -->
+                    </div>
+                </div>
+                <div class="col-11" style='background-color: #72A664;'>
+                    <div id="frame">
+                        <ul class="slides">
+                            <li class="slide" style="background-color:#72A664;">
+
+                                <div class="row  g-0">
+                                    <h1 id="pagetitle">Temperature and Humidity Sensor</h1>
+                                    <div class="col-12">
+                                        <a href="/">
+                                            <button type="button" class="btn btn-primary btn-lg mx-auto">
+                                                <i class="bi bi-house btnicon"></i>
+                                                <p id="btnlabel">Home</p>
+                                                <!-- <p>Status</p> -->
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row  g-0">
+                                    <div class="col-12">
+                                        <div class="infoblk">
+                                            <h2 style="text-align: center; vertical-align: middle; padding-top: 5em;">
+                                                <p>Current Light Sensor Reading</p>
+                                                <p>Lux: <span id="luxValue"></span></p>
+                                                
+                                            </h2>
+    
+                                        </dic>
+                                    </div>
+                                </div>
+
+
+                            </li>
+
+                            <li class="slide" style="background-color:#72A664;">
+
+                                <div class='row'>
+                                    <h3 id="pagetitle">Light Intensity - Past 24 Hours</h3>
+                                        <div class="col-12">
+                                            <div class='graphblk'>          
+                                                <canvas id="line-chart" width="800" height="450"></canvas>                    
+                                                <script src="../js/lightsensor.js"></script>
+                                            </div>
+                                        </div>
+                                </div>
+
+                            </li>
+
+                            <!--li class="slide" style="background-color:#72A664;">
+
+                                <div class='row'>
+                                    <h3 id="pagetitle">Light Sensor</h3>
+
+                                    <canvas id="secondChart" width="600" height="400"></canvas>
+                    
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+                                    <script src="../js/lightsensor.js"></script>
+                                </div>
+
+                            </li-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
